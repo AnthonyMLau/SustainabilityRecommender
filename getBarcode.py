@@ -40,7 +40,7 @@ img = cv2.flip(img, 1)
 # cv2.imwrite('asfd.jpg', img)
 barcode = decoder(img)
 
-# print("this is barcode: ", barcode)
+print("this is barcode: ", barcode)
 
 response = requests.get("https://api.barcodelookup.com/v2/products?barcode={}&key=u7l14tt2dk5y13yjqp9vpfbvsxuqof".format(barcode))
 if response.status_code == 200:

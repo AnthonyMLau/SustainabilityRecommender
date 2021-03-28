@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
 	</head>
 	<body class="is-preload">
 
@@ -31,11 +32,13 @@
 						</div>
 					</section>
 
-					<video id="webcam" autoplay playsinline width="640" height="480"></video>
+					<button  onclick="snapPhoto()" style="font-size:24px"> <i class="fa fa-camera"></i></button>
+					<video id="webcam" -webkit-transform: autoplay playsinline width="640" height="480"></video>
 <canvas id="canvas" class="d-none"></canvas>
 <!-- <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio> -->
 <br>
-<button onclick="snapPhoto()" style="font-size:24px"> <i class="fa fa-camera"></i></button>
+<!-- <div class="wrapper"> -->
+<!-- </div> -->
 <!-- <p id="download-photo"></p> -->
 
 
@@ -360,6 +363,8 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 			<script>
 				const webcamElement = document.getElementById('webcam');
@@ -378,11 +383,48 @@
 					webcam.snap();
 					// document.querySelector('#download-photo').href = picture;
 					document.getElementById("webcam").pause()
-					document.getElementById("canvas").width=0
-					document.getElementById("canvas").height=0
+					canvas = document.getElementById("canvas")
+					// document.getElementById("canvas").width=0
+					// document.getElementById("canvas").height=0
+					var dataURL = canvas.toDataURL();
+					url = "http://localhost:3000/picture"
+					body = {username: dataURL}
+					$.post(url, body, function(data, status){
+						// alert("Data: " + data + "\nStatus: " + status);
+						console.log("Data: " + data + "\nStatus: " + status)
+					});
+
+					// otherParam={body: data,
+					// 	method:"POST"}
+					
+					// 	fetch(url, otherParam).then(res=>console.log(res))
+					// 		.catch(error=>console.log(error))
 				}
 
 			</script>
+			<style>
+				video {
+					display: block;
+					margin: 0 auto;
+				}
+				#canvas {
+				width: 100%;
+				text-align:center;
+				}
 
+				canvas {
+				display: inline;
+				}
+				
+				.wrapper {
+					text-align: center;
+				}
+
+				.button {
+					position: absolute;
+					top: 50%;
+				}
+
+			</style>
 	</body>
 </html>

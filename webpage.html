@@ -31,6 +31,18 @@
 							<img src="images/trees.jpg" alt="" />
 						</div>
 					</section>
+					<!-- Two -->
+						<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+							<div class="content">
+								<h2>Over 25% of the world's carbon is produced by the agricultural sector</h2>
+								<ul class="actions stacked">
+									<li><a href="#" class="button">Learn More</a></li>
+								</ul>
+							</div>
+							<div class="image">
+								<img src="images/globequarter.png" alt="" />
+							</div>
+						</section>
 
 					<div>
 					<button class="asdf"  onclick="snapPhoto()" style="font-size:24px "> <i class="fa fa-camera"></i></button>
@@ -44,23 +56,26 @@
 <!-- <p id="download-photo"></p> -->
 
 
-				<!-- Two -->
+
+					<!-- three-->
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 						<div class="content">
-							<h2>Over 25% of the world's carbon is produced by the agricultural sector</h2>
+							<!-- <div class="rating">62%</div> -->
+							<h2>The Vinta crackers have a low carbon footprint, with a GroceryFootprint of 8.4/10!</h2>
+							<p class="major">From: USA<br>Type: Plant Based<br>Land Use: low<br>Packaging: medium</p>
 							<ul class="actions stacked">
 								<li><a href="#" class="button">Learn More</a></li>
 							</ul>
 						</div>
 						<div class="image">
-							<img src="images/globequarter.png" alt="" />
+							<img src="images/score.png" alt="" />
 						</div>
 					</section>
 
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
 
-
-
-
+						
+					</section>
 
 
 				<!-- Footer -->
@@ -109,8 +124,8 @@
 					// document.querySelector('#download-photo').href = picture;
 					document.getElementById("webcam").pause()
 					canvas = document.getElementById("canvas")
-					// document.getElementById("canvas").width=0
-					// document.getElementById("canvas").height=0
+					document.getElementById("canvas").width=0
+					document.getElementById("canvas").height=0
 					var dataURL = canvas.toDataURL();
 					url = "http://localhost:3000/picture"
 					body = {username: dataURL}
@@ -141,14 +156,8 @@
 				display: inline;
 				}
 				
-				.wrapper {
-					text-align: center;
-				}
+				
 
-				#asdf {
-					position: absolute;
-					top: 50%;
-				}
 
 			</style>
 	</body>
